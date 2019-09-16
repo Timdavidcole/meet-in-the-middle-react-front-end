@@ -41,7 +41,11 @@ Locally:
  
 #### Deployed:
 
- http://meet-in-the-middle-frontend.herokuapp.com/
+- Unfortunately because our API calls are in the front end you have to open Chrome without CORS enabled.
+ 
+- In terminal --> `open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security`
+
+- In browser the new chrome browser windoe ---> http://meet-in-the-middle-frontend.herokuapp.com/
  
  ### How to run the tests:
  
