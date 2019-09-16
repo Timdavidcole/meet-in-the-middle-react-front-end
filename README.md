@@ -11,6 +11,11 @@
 
 ![Imgur](https://i.imgur.com/QoZvtxz.jpg)
 
+### Introduction
+
+This is my own fork our our final group project at Makers Academy.  6 of us made this over our final 2 weeks, but this fork is for my own personal improvements post-course.  We were extremely rushed at the end so there was plenty I wanted to iron out and get working myself, especially tweaking the algorithm.
+I also wanted to get it properly deployed on Heroku so me and my friends could use it as it is genuinely useful!
+
 ### To use the app:
 
 Locally:
