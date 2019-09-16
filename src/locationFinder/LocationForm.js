@@ -122,7 +122,7 @@ class LocationForm extends React.Component {
   render() {
     return (
       <div className="slider">
-        <Script url="https://maps.googleapis.com/maps/apis/js?key=AIzaSyDkqVxDDu_TzV8SORSyM1rXVNP7qQfAGHg&libraries=places" />
+        <Script url="https://maps.googleapis.com/maps/apis/js?key=AIzaSyB9-449YKR60GMDFtlaiFHJiU3W5MYrPJ4&libraries=places" />
         <div >
           <span style={{width: "180px", margin: 5, display: 'inline-block'}}className="greeting">{this.props.greeting}</span>
           {this.favouritesButtons()}
