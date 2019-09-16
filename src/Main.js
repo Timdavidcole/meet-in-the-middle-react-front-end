@@ -4,7 +4,7 @@ import update from "immutability-helper";
 import MapContainer from "./mapContainer/MapContainer";
 import LocationContainer from "./locationFinder/LocationContainer";
 import MidlLocation from "./midlLocation/MidlLocation";
-import JourneyTime from "./JourneyTimes/JourneyTime";
+import JourneyTimeContainer from "./JourneyTimes/JourneyTimeContainer";
 
 class Main extends React.Component {
   constructor(props) {
@@ -294,7 +294,7 @@ class Main extends React.Component {
           style={this.isHidden()}
           className="journeyTime"
           >
-          <JourneyTime
+          <JourneyTimeContainer
             markers={this.state.markers}
             addMidlMarkerJourneyTime={this.addMidlMarkerJourneyTime}
             midlMarker={this.state.midlMarker}

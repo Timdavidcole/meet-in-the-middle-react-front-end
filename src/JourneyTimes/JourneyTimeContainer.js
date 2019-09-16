@@ -1,7 +1,7 @@
 import React from "react";
 import JourneyTimes from './JourneyTimes'
 
-class JourneyTime extends React.Component {
+class JourneyTimeContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -84,18 +84,6 @@ class JourneyTime extends React.Component {
           "properties": ["travel_time", "distance", "route"]
         }
       ],
-      // "departure_searches": [
-      //   {
-      //     "id": "route_search",
-      //     "departure_location_id": "Marker 1",
-      //     "arrival_location_ids": ["Marker 2"],
-      //     "transportation": {
-      //       "type": `${this.props.journeyType}`
-      //     },
-      //     "departure_time": `${formatted_date}`,
-      //     "properties": ["travel_time", "distance", "route"]
-      //   }
-      // ]
     })
   }
 
@@ -265,4 +253,4 @@ class JourneyTime extends React.Component {
   }
 }
 
-export default JourneyTime;
+export default JourneyTimeContainer;
