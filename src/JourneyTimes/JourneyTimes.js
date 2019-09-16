@@ -60,7 +60,8 @@ class JourneyTimes extends React.Component {
         method: 'GET'
       }).then(json => json.json())
       .then(response => this.setState({route: response}))
-      .then(this.props.setMidlRoute)
+      .then(response => this.props.setMidlRoute)
+      .then(response => console.log(this.state.route))
     }
   }
 

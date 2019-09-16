@@ -89,10 +89,11 @@ class JourneyTimeContainer extends React.Component {
 
   middleOfRoute() {
     // checks to see if middle marker has been requested
+    console.log(this.state.route)
     if (this.props.findMidl) {
       // creates many many holding variables
       let halfWay = this._getHalfWayTime()
-      let journey = this.state.route.route.parts
+      let journey = this.state.route.steps
       let middleRoute = []
       let timeSoFar = 0
       let travelTimeBeginningOfHalfWay = 0
@@ -106,14 +107,14 @@ class JourneyTimeContainer extends React.Component {
           // Sets the travel time for the end of previous segment
           travelTimeEndOfHalfWay = timeSoFar
           // Set the travel time for the beginning of previous segment
-          travelTimeBeginningOfHalfWay = travelTimeEndOfHalfWay - journey[i-1].travel_time
+          travelTimeBeginningOfHalfWay = travelTimeEndOfHalfWay - journey[i-1].duration.value
           // Calculates the ratio of middle distance within the segment
           journeySplitRatio = (this._getHalfWayTime() - travelTimeBeginningOfHalfWay) / (travelTimeEndOfHalfWay - travelTimeBeginningOfHalfWay)
         } else {
           // removes segment time from half the total travel time until it reaches 0
-          halfWay -= segment.travel_time
+          halfWay -= segment.duration.value
           // calculates the travel time so far
-          timeSoFar += segment.travel_time
+          timeSoFar += segment.duration.value
         }
       }, this)
       // creates a Midl Marker at the nearest stop in the middle segment
@@ -125,7 +126,7 @@ class JourneyTimeContainer extends React.Component {
   }
 
   _getHalfWayTime(){
-    return this.state.route.travel_time / 2
+    return this.state.route.duration.value / 2
   }
 
   _setMidlMarker(journeySplitRatio, middleRoute){
@@ -191,23 +192,20 @@ class JourneyTimeContainer extends React.Component {
     };
   }
 
-  requestRouteMidl() {
-    fetch('https://api.traveltimeapp.com/v4/routes', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'X-Application-Id': 'b573c4f9',
-          'X-Api-Key': '5e65e4fca602a52427f48d2f235bf088',
-        },
-      body: JSON.stringify(this.requestBody({
-          lat1: this.props.markers[0].position.lat,
-          lng1: this.props.markers[0].position.lng,
-          lat2: this.props.markers[1].position.lat,
-          lng2: this.props.markers[1].position.lng
-      })),
+  getUrl(){
+    console.log(this.journeyType())
+    let origin = "origin=" + this.props.markers[0].position.lat + ',' + this.props.markers[0].position.lng
+    let destination = "&destination=" + this.props.markers[1].position.lat + ',' + this.props.markers[1].position.lng
+    let key = "&key=AIzaSyCAtlUmx3Wezl2aIkYlidgxT__4S7mKbMc"
+    let mode = `&mode=${this.journeyType()}`
+    return "https://maps.googleapis.com/maps/api/directions/json?" + origin + destination + key + mode
+  }
+
+  requestRouteMidl(){
+    fetch(this.getUrl(), {
+      method: 'GET'
     }).then(json => json.json())
-    .then(response => this.setState({ route: response.results[0].locations[0].properties[0] }))
+    .then(response => this.setState({route: response.routes[0].legs[0]}))
     .then(test => this.middleOfRoute())
   }
 
