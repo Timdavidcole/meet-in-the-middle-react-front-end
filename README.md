@@ -28,7 +28,8 @@ Locally:
  2. `cd meet-in-the-middle-react-front=end`
  3. `npm install`
  4. `npm start`
- Now unfortunately because our API calls our in the front end you have to open Chrome without CORS enabled.
+ 
+ Unfortunately because our API calls our in the front end you have to open Chrome without CORS enabled.
  5. `open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security`
  6. In the new chrome browser window go to http://localhost:3000/
  
