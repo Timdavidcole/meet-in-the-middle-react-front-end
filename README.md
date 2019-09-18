@@ -9,7 +9,7 @@
 
 #### An app which allows the user to select the location of themself and a friend, then calculates a middle point between them to meet up based on their respective commute times and makes recommendations as to bars, restaurants and other attractions to visit.
 
-![Imgur](https://i.imgur.com/QoZvtxz.jpg)
+![Imgur](https://i.imgur.com/Lu4MISn.png)
 
 ### Introduction
 
